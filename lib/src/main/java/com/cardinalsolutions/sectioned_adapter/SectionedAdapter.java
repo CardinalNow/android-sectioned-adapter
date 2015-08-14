@@ -17,7 +17,7 @@ import java.util.List;
 /**
  * A {@link RecyclerView.Adapter} that is capable of automatically generating section header views
  * and inserting them into a list of {@link Categorizable} data.
- *
+ * <p/>
  * <p>
  * Subclasses should implement <code>onCreateItemViewHolder()</code> to return a
  * {@link android.support.v7.widget.RecyclerView.ViewHolder} for their data object and then
@@ -28,6 +28,7 @@ import java.util.List;
  * automatically generate and insert headers at the appropriate positions.  The list of items
  * does not need to be sorted.
  * </p>
+ *
  * @author Alex Morgan {amorgan@cardinalsolutions.com}
  */
 public abstract class SectionedAdapter<T extends Categorizable> extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
@@ -132,7 +133,7 @@ public abstract class SectionedAdapter<T extends Categorizable> extends Recycler
      * for each item in the adapter.  It should return a ViewHolder subclass suitable for binding
      * to the specified view type.
      *
-     * @param parent The ViewGroup into which the new View will be added after it is bound to an adapter position.
+     * @param parent   The ViewGroup into which the new View will be added after it is bound to an adapter position.
      * @param viewType The type of the new View
      * @return A new ViewHolder that holds a View of the given view type.
      */
@@ -150,7 +151,7 @@ public abstract class SectionedAdapter<T extends Categorizable> extends Recycler
         }
     }
 
-    private static class SectionHeader {
+    static class SectionHeader {
         SectionHeader(String title) {
             this.title = title;
         }
