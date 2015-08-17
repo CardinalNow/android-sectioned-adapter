@@ -2,8 +2,12 @@
 Android Section Adapter allows you to easily create a RecyclerView.Adapter which will automatically
 sort your data into sections, each with a header.
 
+## Feedback ##
+I want your feedback!  Send your problems or requests to 
+[amorgan@cardinalsolutions.com](mailto:amorgan@cardinalsolutions.com) or open 
+an issue on the project.
+
 ## Usage ##
-The following steps will get your sectioned adapter up and running.
 
 ### Implement Categorizable ###
 Your data model object needs to implement Categorizable.getCategory() to return the name of its
