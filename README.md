@@ -48,3 +48,6 @@ needs to do is implement `onCreateItemViewHolder()` to create a `ViewHolder` for
 `RecyclerView.Adapter`.  SectionedAdapter takes type parameter, which is the type of your model
 object.  Finally, you *must* call `setListItems()` with your list of `Categorizable`
 data in order to generate the headers and show your data.
+
+## Roadmap ##
+The only planned upcoming feature is the ability to customize header views by providing an XML layout.
