@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.cardinalsolutions.sectioned_adapter.Categorizable;
 import com.cardinalsolutions.sectioned_adapter.SectionedAdapter;
 import com.cardinalsolutions.sectioned_adapter.demo.R;
 
@@ -14,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * TODO
+ * An Adapter for binding Cat instances to a sectioned list where each item is sectioned by breed.
  */
 public class CatAdapter extends SectionedAdapter<Cat> {
 
@@ -34,9 +33,8 @@ public class CatAdapter extends SectionedAdapter<Cat> {
     }
 
     @Override
-    public void onBindItemViewHolder(RecyclerView.ViewHolder holder, Cat item, int viewType) {
+    public void onBindItemViewHolder(RecyclerView.ViewHolder holder, Cat cat, int viewType) {
         CatViewHolder catViewHolder = (CatViewHolder) holder;
-        Cat cat = (Cat) item;
         catViewHolder.nameLabel.setText(cat.name);
         catViewHolder.breedLabel.setText(cat.breed);
     }
