@@ -107,7 +107,7 @@ public abstract class SectionedAdapter<T extends Categorizable> extends Recycler
      *
      * @param itemList a list of {@link Categorizable} objects to be displayed in sections
      */
-    public void setItemList(List<Categorizable> itemList) {
+    public void setItemList(List<? extends Categorizable> itemList) {
         Collections.sort(itemList, new Comparator<Categorizable>() {
             @Override
             public int compare(Categorizable lhs, Categorizable rhs) {

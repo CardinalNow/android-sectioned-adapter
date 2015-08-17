@@ -1,4 +1,4 @@
-package com.cardinalsolutions.sectioned_adapter.demo;
+package com.cardinalsolutions.sectioned_adapter.demo.cats;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.cardinalsolutions.sectioned_adapter.Categorizable;
 import com.cardinalsolutions.sectioned_adapter.SectionedAdapter;
+import com.cardinalsolutions.sectioned_adapter.demo.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,9 +16,9 @@ import java.util.List;
 /**
  * TODO
  */
-public class CatSectionedAdapter extends SectionedAdapter {
+public class CatAdapter extends SectionedAdapter<Cat> {
 
-    public CatSectionedAdapter() {
+    public CatAdapter() {
         List<Cat> cats = new ArrayList<>();
         cats.add(new Cat("Fluffers", "Persian Longhair"));
         cats.add(new Cat("Felix", "Mixed"));
@@ -33,7 +34,7 @@ public class CatSectionedAdapter extends SectionedAdapter {
     }
 
     @Override
-    public void onBindItemViewHolder(RecyclerView.ViewHolder holder, Categorizable item, int viewType) {
+    public void onBindItemViewHolder(RecyclerView.ViewHolder holder, Cat item, int viewType) {
         CatViewHolder catViewHolder = (CatViewHolder) holder;
         Cat cat = (Cat) item;
         catViewHolder.nameLabel.setText(cat.name);
@@ -56,20 +57,5 @@ public class CatSectionedAdapter extends SectionedAdapter {
             breedLabel = (TextView) itemView.findViewById(R.id.recycler_cell_cat_breed_label);
         }
 
-    }
-
-    class Cat implements Categorizable {
-        String name;
-        String breed;
-
-        public Cat(String name, String breed) {
-            this.name = name;
-            this.breed = breed;
-        }
-
-        @Override
-        public String getCategory() {
-            return breed;
-        }
     }
 }

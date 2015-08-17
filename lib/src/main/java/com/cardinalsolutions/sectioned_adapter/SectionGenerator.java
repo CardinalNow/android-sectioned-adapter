@@ -18,7 +18,7 @@ class SectionGenerator {
      * @param items
      * @return
      */
-    public static List<Object> getSectionsForItems(List<Categorizable> items) {
+    public static List<Object> getSectionsForItems(List<? extends Categorizable> items) {
         /* Creates a mapping of section headers to the position they should be inserted in the list */
         Map<Integer, String> sectionHeaders = new HashMap<>();
         for (int i = 0; i < items.size(); i++) {
