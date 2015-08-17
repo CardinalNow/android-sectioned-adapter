@@ -6,6 +6,7 @@ package com.cardinalsolutions.sectioned_adapter;
 public interface Categorizable {
     /**
      * Gets the name of the category that this item belongs to.
+     *
      * @return the name <code>String</code>
      */
     String getCategory();

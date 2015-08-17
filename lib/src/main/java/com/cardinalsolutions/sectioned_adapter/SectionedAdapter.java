@@ -83,9 +83,8 @@ public abstract class SectionedAdapter<T extends Categorizable> extends Recycler
     }
 
     @Override
-    public
     @ViewType
-    int getItemViewType(int position) {
+    public int getItemViewType(int position) {
         if (itemList.get(position) instanceof Categorizable) {
             return TYPE_ITEM;
         } else if (itemList.get(position) instanceof SectionHeader) {
@@ -140,10 +139,10 @@ public abstract class SectionedAdapter<T extends Categorizable> extends Recycler
     public abstract RecyclerView.ViewHolder onCreateItemViewHolder(ViewGroup parent, @ViewType int viewType);
 
     /**
-     * A ViewHolder for holding a section's View.
+     * A ViewHolder for holding a section header's View.
      */
     private static class SectionViewHolder extends RecyclerView.ViewHolder {
-        private TextView titleView;
+        private final TextView titleView;
 
         SectionViewHolder(View itemView) {
             super(itemView);
