@@ -2,6 +2,7 @@ package com.cardinalsolutions.sectioned_adapter.demo;
 
 import android.app.ActionBar;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -30,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
+
+        TabLayout tabs = (TabLayout) this.findViewById(R.id.activity_main_tabs);
+        tabs.setupWithViewPager(mViewPager);
     }
 
 
@@ -58,9 +62,9 @@ public class MainActivity extends AppCompatActivity {
             Locale l = Locale.getDefault();
             switch (position) {
                 case 0:
-                    return getString(R.string.title_section1).toUpperCase(l);
-                case 1:
                     return getString(R.string.title_section2).toUpperCase(l);
+                case 1:
+                    return getString(R.string.title_section1).toUpperCase(l);
             }
             return null;
         }
@@ -112,10 +116,10 @@ public class MainActivity extends AppCompatActivity {
         private RecyclerView.Adapter getAdapter(int section) {
             switch (section) {
                 case 0: {
-                    return new CatAdapter();
+                    return new PersonAdapter();
                 }
                 case 1: {
-                    return new PersonAdapter();
+                    return new CatAdapter();
                 }
                 default: {
                     return null;

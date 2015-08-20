@@ -30,6 +30,7 @@ public class CatAdapter extends SectionedAdapter<Cat> {
         cats.add(new Cat("Grumpy Cat", "Mixed"));
 
         this.setItemList(cats);
+        this.setCustomHeaderLayout(R.layout.recycler_header_cat);
     }
 
     @Override

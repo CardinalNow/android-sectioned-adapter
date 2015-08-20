@@ -3,26 +3,20 @@
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              android:background="@color/background_floating_material_light"
+              android:background="@color/material_deep_teal_200"
               android:orientation="horizontal"
               android:paddingBottom="8dp"
+              android:paddingEnd="16dp"
               android:paddingLeft="16dp"
               android:paddingRight="16dp"
-              android:paddingTop="8dp"
-              tools:context=".MainActivity">
+              android:paddingStart="16dp"
+              android:paddingTop="8dp">
 
     <TextView
-        android:id="@+id/recycler_cell_cat_name_label"
-        android:layout_width="0dp"
+        android:id="@android:id/title"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:textColor="@color/primary_text_default_material_light"
-        tools:text="Name"/>
+        tools:text="Header"/>
 
-    <TextView
-        android:id="@+id/recycler_cell_cat_breed_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/secondary_text_default_material_light"
-        tools:text="Breed"/>
 </LinearLayout>

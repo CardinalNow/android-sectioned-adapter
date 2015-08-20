@@ -1,5 +1,6 @@
 package com.cardinalsolutions.sectioned_adapter;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.support.annotation.IntDef;
 import android.support.annotation.LayoutRes;
@@ -16,6 +17,8 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.zip.Inflater;
+
+import sectioned_adapter.cardinalsolutions.com.lib.R;
 
 /**
  * A {@link RecyclerView.Adapter} that is capable of automatically generating section header views
@@ -177,11 +180,13 @@ public abstract class SectionedAdapter<T extends Categorizable> extends Recycler
     private View createStandardHeaderView(View parent) {
         LinearLayout sectionView = new LinearLayout(parent.getContext());
         sectionView.setLayoutParams(parent.getLayoutParams());
-        sectionView.setPadding(16, 8, 16, 8);
-        sectionView.setBackgroundColor(Color.parseColor("#9E9E9E"));
+
+        int horizontalPadding = this.pixelsToDp(parent.getContext(), 16);
+        int verticalPadding = this.pixelsToDp(parent.getContext(), 8);
+        sectionView.setPadding(horizontalPadding, verticalPadding, horizontalPadding, verticalPadding);
         TextView titleView = new TextView(parent.getContext());
-        titleView.setTextColor(Color.BLACK);
         titleView.setTag("TITLE");
+        titleView.setTextColor(Color.BLACK);
         sectionView.addView(titleView);
         return sectionView;
     }
@@ -194,5 +199,10 @@ public abstract class SectionedAdapter<T extends Categorizable> extends Recycler
         }
         titleView.setTag("TITLE");
         return view;
+    }
+
+    private int pixelsToDp(Context context, int pixels) {
+        float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (pixels * scale + 0.5f);
     }
 }
