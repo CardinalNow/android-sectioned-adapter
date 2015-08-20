@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Sectioned Adapter Demo</string>
 
-    <string name="title_section1">Cats</string>
+    <string name="title_section1">Famous Cats</string>
     <string name="title_section2">1927 Yankees</string>
     <string name="title_section3">Section 3</string>
 </resources>

@@ -19,15 +19,24 @@ public class CatAdapter extends SectionedAdapter<Cat> {
 
     public CatAdapter() {
         List<Cat> cats = new ArrayList<>();
-        cats.add(new Cat("Fluffers", "Persian Longhair"));
+        cats.add(new Cat("Snowball II", "Persian Longhair"));
         cats.add(new Cat("Felix", "Mixed"));
         cats.add(new Cat("Snowball", "Persian Longhair"));
         cats.add(new Cat("Lil' Bub", "Tabby"));
-        cats.add(new Cat("Shiva", "Siamese"));
-        cats.add(new Cat("Lilly", "Siamese"));
+        cats.add(new Cat("Thomas O'Malley", "Alley Cat"));
+        cats.add(new Cat("Si", "Siamese"));
+        cats.add(new Cat("Am", "Siamese"));
         cats.add(new Cat("Garfield", "Tabby"));
-        cats.add(new Cat("Mittens", "Persian Longhair"));
+        cats.add(new Cat("Puss in Boots", "Tabby"));
+        cats.add(new Cat("Milo", "Tabby"));
+        cats.add(new Cat("Mr. Bigglesworth", "Persian Longhair"));
         cats.add(new Cat("Grumpy Cat", "Mixed"));
+        cats.add(new Cat("Crookshanks", "Himalayan"));
+        cats.add(new Cat("Salem", "Black"));
+        cats.add(new Cat("Church", "Undead"));
+        cats.add(new Cat("Figaro", "Tuxedo Cat"));
+        cats.add(new Cat("Binx", "Black"));
+        cats.add(new Cat("Oliver", "Tabby"));
 
         this.setItemList(cats);
         this.setCustomHeaderLayout(R.layout.recycler_header_cat);
