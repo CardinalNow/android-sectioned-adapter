@@ -10,11 +10,6 @@ Or you can use it with a custom header view that you specify:
 
 ![alt text](https://dl.dropboxusercontent.com/u/33880138/CustomHeaders.png "Custom Header")
 
-## Feedback ##
-I want your feedback!  Send your problems or requests to 
-[amorgan@cardinalsolutions.com](mailto:amorgan@cardinalsolutions.com) or open 
-an issue on the project.
-
 ## Usage ##
 
 ### Implement Categorizable ###
@@ -57,5 +52,8 @@ needs to do is implement `onCreateItemViewHolder()` to create a `ViewHolder` for
 object.  Finally, you *must* call `setListItems()` with your list of `Categorizable`
 data in order to generate the headers and show your data.
 
-## Roadmap ##
-The only planned upcoming feature is the ability to customize header views by providing an XML layout.
+
+## Feedback ##
+I want your feedback!  Send your problems or requests to 
+[amorgan@cardinalsolutions.com](mailto:amorgan@cardinalsolutions.com) or open 
+an issue on the project.
