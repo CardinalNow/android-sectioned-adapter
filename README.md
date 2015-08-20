@@ -4,11 +4,11 @@ sort your data into sections, each with a header.
 
 You can use it with the standard header view:
 
-![alt text](https://www.dropbox.com/s/2smgszcs0aasl56/Screenshot_2015-08-20-10-58-57.png?dl=0 "Standard Header")
+![alt text](https://dl.dropboxusercontent.com/u/33880138/StandardHeader.png "Standard Header")
 
 Or you can use it with a custom header view that you specify:
 
-![alt text](https://www.dropbox.com/s/tfzmanhpjhbv3gr/Screenshot_2015-08-20-10-58-18.png?dl=0 "Custom Header")
+![alt text](https://dl.dropboxusercontent.com/u/33880138/CustomHeaders.png "Custom Header")
 
 ## Feedback ##
 I want your feedback!  Send your problems or requests to 
