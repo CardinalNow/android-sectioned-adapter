@@ -2,7 +2,9 @@ package com.cardinalsolutions.sectioned_adapter;
 
 import android.graphics.Color;
 import android.support.annotation.IntDef;
+import android.support.annotation.LayoutRes;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -13,6 +15,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.zip.Inflater;
 
 /**
  * A {@link RecyclerView.Adapter} that is capable of automatically generating section header views
@@ -42,6 +45,9 @@ public abstract class SectionedAdapter<T extends Categorizable> extends Recycler
 
     private List<Object> itemList;
 
+    @LayoutRes
+    private int headerLayoutResource = -1;
+
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         switch (this.getItemViewType(position)) {
@@ -64,14 +70,13 @@ public abstract class SectionedAdapter<T extends Categorizable> extends Recycler
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, @ViewType int viewType) {
         switch (viewType) {
             case TYPE_SECTION_HEADER: {
-                LinearLayout sectionView = new LinearLayout(parent.getContext());
-                sectionView.setLayoutParams(parent.getLayoutParams());
-                sectionView.setBackgroundColor(Color.GRAY);
-                TextView titleView = new TextView(parent.getContext());
-                titleView.setTextColor(Color.WHITE);
-                titleView.setTag("TITLE");
-                sectionView.addView(titleView);
-                return new SectionViewHolder(sectionView);
+                View view;
+                if (this.headerLayoutResource == -1) {
+                    view = this.createStandardHeaderView(parent);
+                } else {
+                    view = this.createCustomHeaderView(parent, this.headerLayoutResource);
+                }
+                return new SectionViewHolder(view);
             }
             case TYPE_ITEM: {
                 return this.onCreateItemViewHolder(parent, viewType);
@@ -118,6 +123,17 @@ public abstract class SectionedAdapter<T extends Categorizable> extends Recycler
     }
 
     /**
+     * Sets a layout resource to inflate when creating the headers for sections.  The specified
+     * layout must contain a TextView with the id <code>android.R.id.title</code> or else an
+     * exception will be thrown when the ViewHolder is later bound.
+     *
+     * @param headerResource the resource ID
+     */
+    protected void setCustomHeaderLayout(@LayoutRes int headerResource) {
+        this.headerLayoutResource = headerResource;
+    }
+
+    /**
      * This method is called when the adapter needs to bind data for a data object into a view holder.
      *
      * @param holder   a {@link android.support.v7.widget.RecyclerView.ViewHolder} subclass of the
@@ -156,5 +172,27 @@ public abstract class SectionedAdapter<T extends Categorizable> extends Recycler
         }
 
         String title;
+    }
+
+    private View createStandardHeaderView(View parent) {
+        LinearLayout sectionView = new LinearLayout(parent.getContext());
+        sectionView.setLayoutParams(parent.getLayoutParams());
+        sectionView.setPadding(16, 8, 16, 8);
+        sectionView.setBackgroundColor(Color.parseColor("#9E9E9E"));
+        TextView titleView = new TextView(parent.getContext());
+        titleView.setTextColor(Color.BLACK);
+        titleView.setTag("TITLE");
+        sectionView.addView(titleView);
+        return sectionView;
+    }
+
+    private View createCustomHeaderView(ViewGroup parent, @LayoutRes int layoutResource) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(layoutResource, parent, false);
+        TextView titleView = (TextView) view.findViewById(android.R.id.title);
+        if (titleView == null) {
+            throw new RuntimeException("The header layout file MUST contain a TextView with the id `android.R.id.title`; unable to bind header views.");
+        }
+        titleView.setTag("TITLE");
+        return view;
     }
 }
