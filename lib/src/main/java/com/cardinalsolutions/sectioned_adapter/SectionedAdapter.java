@@ -16,9 +16,6 @@ import java.lang.annotation.RetentionPolicy;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.zip.Inflater;
-
-import sectioned_adapter.cardinalsolutions.com.lib.R;
 
 /**
  * A {@link RecyclerView.Adapter} that is capable of automatically generating section header views
@@ -174,7 +171,7 @@ public abstract class SectionedAdapter<T extends Categorizable> extends Recycler
             this.title = title;
         }
 
-        String title;
+        final String title;
     }
 
     private View createStandardHeaderView(View parent) {

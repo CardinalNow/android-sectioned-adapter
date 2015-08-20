@@ -9,7 +9,7 @@ import java.util.Map;
  * A class for generating section headers for a data set.  Each item must implement
  * {@link Categorizable} to provide the name of its category, which will be used as the title for each section.
  */
-public class SectionGenerator {
+class SectionGenerator {
     /**
      * Adds section header objects into a list of {@link Categorizable} data objects.  For each
      * unique category title returned by the list objects, a corresponding section header will be
