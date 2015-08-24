@@ -1,8 +1,8 @@
 # Android Sectioned Adapter #
 Android Section Adapter allows you to easily create a RecyclerView.Adapter which will automatically
-sort your data into sections, each with a header.
+sort your data into sections and add a header above each section.
 
-You can use it with the standard header view:
+You can use it with the provided header view:
 
 ![alt text](https://dl.dropboxusercontent.com/u/33880138/StandardHeader.png "Standard Header")
 
@@ -11,6 +11,12 @@ Or you can use it with a custom header view that you specify:
 ![alt text](https://dl.dropboxusercontent.com/u/33880138/CustomHeaders.png "Custom Header")
 
 ## Usage ##
+
+### Get it with Gradle ###
+Details to be added once published to jcenter
+```
+compile 'com.example:sectioned-adapter:0.0.0'
+```
 
 ### Implement Categorizable ###
 Your data model object needs to implement Categorizable.getCategory() to return the name of its
@@ -47,13 +53,12 @@ class Person implements Categorizable
 ### Subclass SectionedAdapter ###
 Sectioned Adapter takes care of generating and inserting the header views, so all your subclass
 needs to do is implement `onCreateItemViewHolder()` to create a `ViewHolder` for your items and
-`onBindItemViewHolder()` to bind the data, much like you would do when creating a normal
-`RecyclerView.Adapter`.  SectionedAdapter takes type parameter, which is the type of your model
-object.  Finally, you *must* call `setListItems()` with your list of `Categorizable`
+`onBindItemViewHolder()` to bind the data, exactly like you would do when creating a normal
+`RecyclerView.Adapter`.  SectionedAdapter takes type parameter, the type of your model
+object you want to adapt.  Finally, you *must* call `setListItems()` with your list of `Categorizable`
 data in order to generate the headers and show your data.
 
-
-## Feedback ##
-I want your feedback!  Send your problems or requests to 
-[amorgan@cardinalsolutions.com](mailto:amorgan@cardinalsolutions.com) or open 
-an issue on the project.
+### Use a Custom Header View ###
+Sectioned Adapter will automatically generate a header view for your data using a built-in layout
+as seen in the Yankees example above.  You can also specify an XML layout that you want to inflate
+for each header.  The view *must* contain a Text View with the ID `@android:id/title`.
