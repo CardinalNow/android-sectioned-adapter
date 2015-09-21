@@ -19,7 +19,7 @@ compile 'com.cardinalsolutions:android-sectioned-adapter:1.0.0'
 ```
 
 ### Implement Categorizable ###
-Your data model object needs to implement Categorizable.getCategory() to return the name of its
+Your data object needs to implement Categorizable.getCategory() to return the name of its
 category.  For each category name that appears in the data, SectionedAdapter will automatically
 create and insert a header view for that category and place all the item views beneath it.  For
 example, the `Dog` class will be sectioned according to the breed of the dog.
