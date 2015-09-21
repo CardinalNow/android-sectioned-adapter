@@ -13,9 +13,9 @@ Or you can use it with a custom header view that you specify:
 ## Usage ##
 
 ### Get it with Gradle ###
-Details to be added once published to jcenter
+Add the dependency to your build.gradle file.  
 ```
-compile 'com.example:sectioned-adapter:0.0.0'
+compile 'com.cardinalsolutions:android-sectioned-adapter:1.0.0'
 ```
 
 ### Implement Categorizable ###
